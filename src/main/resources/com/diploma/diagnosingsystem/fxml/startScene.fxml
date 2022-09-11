@@ -1,18 +1,130 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Group?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane focusTraversable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
-
+<AnchorPane focusTraversable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" stylesheets="@../css/startSceneStyling.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.diploma.diagnosingsystem.StartSceneController">
+   <children>
+      <HBox alignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <VBox alignment="CENTER" prefHeight="500.0" prefWidth="500.0" styleClass="label-body">
+               <children>
+                  <Label lineSpacing="1.0" text="ІНФОРМАЦІЙНА СИСТЕМА ДІАГНОСТУВАННЯ ХВОРІБ В СТОМАТОЛОГІЇ" textFill="WHITE" wrapText="true">
+                     <font>
+                        <Font name="Calibri" size="32.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <padding>
+                        <Insets left="20.0" />
+                     </padding>
+                  </Label>
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </VBox>
+            <StackPane fx:id="userScene" prefHeight="500.0" prefWidth="300.0">
+               <children>
+                  <VBox fx:id="regScene" alignment="CENTER" prefHeight="500.0" prefWidth="300.0" spacing="15.0" styleClass="user-body">
+                     <children>
+                        <Label text="РЕЄСТРАЦІЯ" textAlignment="CENTER">
+                           <font>
+                              <Font name="Calibri" size="25.0" />
+                           </font>
+                        </Label>
+                        <TextField focusTraversable="false" prefHeight="40.0" promptText="Електронна адреса ..." styleClass="field" />
+                        <PasswordField focusTraversable="false" prefHeight="40.0" promptText="Пароль ..." styleClass="field" />
+                        <TextField focusTraversable="false" prefHeight="40.0" promptText="Номер телефону ...." styleClass="field" />
+                        <DatePicker focusTraversable="false" promptText="Дата народження ..." />
+                        <Group>
+                           <children>
+                              <HBox alignment="CENTER" prefHeight="30.0" prefWidth="270.0" spacing="50.0">
+                                 <children>
+                                    <RadioButton focusTraversable="false" mnemonicParsing="false" prefWidth="100.0" text="Чоловік">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="sex" />
+                                       </toggleGroup>
+                                    </RadioButton>
+                                    <RadioButton focusTraversable="false" mnemonicParsing="false" prefWidth="100.0" text="Жінка" toggleGroup="$sex" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </Group>
+                        <Group>
+                           <children>
+                              <HBox alignment="CENTER" prefHeight="30.0" prefWidth="270.0" spacing="50.0">
+                                 <children>
+                                    <RadioButton focusTraversable="false" mnemonicParsing="false" prefWidth="100.0" text="Лікар">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="sex1" />
+                                       </toggleGroup>
+                                    </RadioButton>
+                                    <RadioButton focusTraversable="false" mnemonicParsing="false" prefWidth="100.0" text="Пацієнт" toggleGroup="$sex1" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </Group>
+                        <Button mnemonicParsing="false" text="ЗАРЕЄСТРУВАТИСЬ" textFill="WHITE">
+                           <font>
+                              <Font name="Calibri" size="16.0" />
+                           </font>
+                        </Button>
+                        <Label fx:id="logLink" onMouseClicked="#switchToLogIn" text="Є акаунт? Увійдіть тут" textAlignment="CENTER" underline="true" wrapText="true" />
+                     </children>
+                     <padding>
+                        <Insets left="15.0" right="15.0" />
+                     </padding>
+                  </VBox>
+                  <VBox fx:id="logIn" alignment="CENTER" prefHeight="500.0" prefWidth="300.0" spacing="30.0" styleClass="user-body">
+                     <children>
+                        <Label text="ВХІД" textAlignment="CENTER">
+                           <font>
+                              <Font name="Calibri" size="25.0" />
+                           </font>
+                        </Label>
+                        <TextField focusTraversable="false" prefHeight="40.0" promptText="Електронна адреса ..." styleClass="field" />
+                        <PasswordField focusTraversable="false" prefHeight="40.0" promptText="Пароль ..." styleClass="field" />
+                        <Button mnemonicParsing="false" text="УВІЙТИ" textFill="WHITE">
+                           <font>
+                              <Font name="Calibri" size="16.0" />
+                           </font>
+                        </Button>
+                        <Label fx:id="regLink" onMouseClicked="#switchToRegistration" text="Нема акаунта? Створіть тут" textAlignment="CENTER" underline="true" wrapText="true" />
+                     </children>
+                     <padding>
+                        <Insets left="15.0" right="15.0" />
+                     </padding>
+                  </VBox>
+               </children>
+            </StackPane>
+         </children>
+      </HBox>
+      <ImageView fx:id="closeBtn" fitHeight="15.0" fitWidth="15.0" onMouseClicked="#closeApplication" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <image>
+            <Image url="@../icons/close-black.png" />
+         </image>
+      </ImageView>
+   </children>
 </AnchorPane>

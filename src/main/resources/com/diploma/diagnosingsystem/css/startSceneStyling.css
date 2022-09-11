@@ -1,0 +1,27 @@
+.label-body{
+    -fx-background-color:   #343A40;
+}
+
+.user-body{
+    -fx-background-color:   #DEE2E6;
+}
+
+.button{
+    -fx-background-color:   #6C757D;
+    -fx-background-radius:  0.1em;
+
+}
+
+.button:hover{
+    -fx-background-color:   #ADB5BD;
+}
+
+.button:pressed{
+    -fx-background-color:   #5A6168;
+}
+
+.field{
+    -fx-background-color:   #DEE2E6;
+    -fx-border-color:       #000000;
+    -fx-border-width:       0px 0px 1px 0px;
+}
